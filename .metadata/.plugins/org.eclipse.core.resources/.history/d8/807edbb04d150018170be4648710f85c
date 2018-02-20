@@ -1,0 +1,39 @@
+package com.yun.repository;
+
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.atomic.AtomicLong;
+
+import com.yun.domain.User;
+
+public class UserRepositoryImpl implements UserRepository{
+	private static AtomicLong counter = new AtomicLong();
+	private final ConcurrentMap<Long,User> userMap = new ConcurrentHashMap<Long,User>();
+	
+	@Override
+	public User saveOrUpdateUser(User user) {
+		Long id = user.getId();
+		if(id == null) { // 新建
+			id = counter.incrementAndGet();
+			user.setId(id);
+		}
+		return null;
+	}
+
+	@Override
+	public void deleteUser(long id) {
+		
+	}
+
+	@Override
+	public User getUserById(long id) {
+		return null;
+	}
+
+	@Override
+	public List<User> listUser() {
+		return null;
+	}
+
+}

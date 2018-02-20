@@ -1,0 +1,9 @@
+package com.yun.repository;
+
+import com.yun.domain.User;
+
+public interface UserRepository {
+	User saveOrUpdateUser(User user);
+	
+	void deleteUser(long id);
+}

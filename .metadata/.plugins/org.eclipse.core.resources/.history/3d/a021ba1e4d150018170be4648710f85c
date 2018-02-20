@@ -1,0 +1,29 @@
+package com.yun.repository;
+
+import java.util.List;
+
+import com.yun.domain.User;
+
+public class UserRepositoryImpl implements UserRepository{
+
+	@Override
+	public User saveOrUpdateUser(User user) {
+		return null;
+	}
+
+	@Override
+	public void deleteUser(long id) {
+		
+	}
+
+	@Override
+	public User getUserById(long id) {
+		return null;
+	}
+
+	@Override
+	public List<User> listUser() {
+		return null;
+	}
+
+}

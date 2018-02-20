@@ -1,0 +1,5 @@
+package com.yun.repository;
+
+public interface UserRepository {
+
+}
