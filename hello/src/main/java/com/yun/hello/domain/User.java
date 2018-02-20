@@ -4,10 +4,10 @@ public class User {
 	public User() {
 	}
 	
-	public User(Long id,String name,String email) {
+	public User(Long id,String name,int age) {
 		this.id = id;
 		this.name = name;
-		this.email = email;
+		this.age = age;
 	}
 	
 	public Long getId() {
@@ -22,15 +22,15 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getEmail() {
-		return email;
+	public int getAge() {
+		return this.age;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setAge(int age) {
+		this.age = age;
 	}
 	private Long id;
 	private String name;
-	private String email;
+	private int age;
 	
 	
 }
