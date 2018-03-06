@@ -1,5 +1,0 @@
-package com.yun.repository;
-
-public class UserRepositoryImpl {
-
-}

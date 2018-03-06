@@ -17,4 +17,16 @@
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+<fullyQualifiedTypeName name="javax.persistence.Entity"/>
+<fullyQualifiedTypeName name="javax.persistence.Id"/>
+<fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
+<fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
+<fullyQualifiedTypeName name="org.springframework.data.repository.CrudRepository"/>
+<fullyQualifiedTypeName name="com.yun.hello.domain.Blog"/>
+<fullyQualifiedTypeName name="com.yun.hello.repository.BlogRepository"/>
+<fullyQualifiedTypeName name="com.yun.hello.vo.Menu"/>
+<fullyQualifiedTypeName name="com.yun.hello.service.AuthorityService"/>
+<fullyQualifiedTypeName name="com.yun.hello.domain.User"/>
+<fullyQualifiedTypeName name="com.yun.hello.service.UserService"/>
+<fullyQualifiedTypeName name="com.yun.hello.vo.Response"/>
 </qualifiedTypeNameHistroy>
