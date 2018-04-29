@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head th:replace="fragments/header :: header">
+    <meta charset="utf-8"></meta>
+    <style>
+        .editormd-html-preview {
+            width: 90%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body style="height: auto; overflow-y:scroll">
+<!-- Page Content -->
+<div class="container">
+
+    <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div>
+
+            <!-- Blog Post -->
+            <div>
+
+                <div>
+
+                    <div>
+                        <a th:href="'/u/' + ${blogModel.user.username}" class="card-link"
+                           th:text="${blogModel.user.username}"></a> 发表于...
+
+                        <a th:href="'/u/' + ${blogModel.user.username}+ '/blogs/edit/'+ ${blogModel.id}"
+                           class="btn btn-primary">
+                            编辑
+                        </a>
+
+                        <a href="javascript:void(0)"
+                           th:attr="blogUrl='/u/' + ${blogModel.user.username} + '/blogs/'+ ${blogModel.id}"
+                           class="btn btn-primary blog-delete-blog">
+                            删除
+                        </a>
+
+                    </div>
+
+                    <!--
+                        <article class="post-content" th:utext="${blogModel.htmlContent}">
+                        </article>
+-->
+                        <div id="doc-content">
+                            <!-- 第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
+                            <textarea name="content" th:utext="${blogModel.content}"></textarea>
+                        </div>
+
+                </div>
+                <!--
+                <div class="card-block">
+
+                    <h5>分类：
+                        <a href="/u/waylau/blogs?category=11">
+                            Spring Data
+                        </a>
+                    </h5>
+
+                    <h5>标签：
+                        <a href="/u/waylau/blogs?keyword=分布式"> <span class="badge badge-default">Web Design</span></a>
+                        <a href="/u/waylau/blogs?keyword=分布式"> <span class="badge badge-default">Jersey</span></a>
+                        <a href="/u/waylau/blogs?keyword=分布式"> <span class="badge badge-default">JavaScript</span></a>
+                        <a href="/u/waylau/blogs?keyword=分布式"> <span class="badge badge-default">CSS</span></a>
+                        <a href="/u/waylau/blogs?keyword=分布式"> <span class="badge badge-default">Java</span></a>
+                        <a href="/u/waylau/blogs?keyword=分布式"> <span class="badge badge-default">Freebies</span></a>
+
+                    </h5>
+
+                </div>
+
+                <div class="card-block">
+
+                    <h5>评论：</h5>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <textarea class="blog-textarea" placeholder="看帖需留言~"></textarea>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary float-right">发表评论</button>
+
+                </div>
+
+                <div class="card-block">
+
+                    <div class="row">
+
+                        <h2 class="card-title col-lg-1 col-md-2">
+							<span>
+			                  <a href="/u/waylau" title="waylau">
+			                    <img src="/images/avatar-defualt.jpg" class="blog-avatar-50"
+                                     alt="waylau"></img>
+			                  </a>
+					        </span>
+                        </h2>
+
+                        <div class="card-text col-lg-11 col-md-10">
+                            <a href="/u/waylau" class="card-link">waylau</a> 1楼 2017-03-17 14:20
+                            <p>不错哦，顶起！</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>-->
+
+        </div>
+
+        <!-- 右侧栏目 -->
+        <!--
+        <div class="col-md-4">
+            <div>
+                <div class="card ">
+                    <h5 class="card-header"><i class="fa fa-bars" aria-hidden="true"></i> 文章目录</h5>
+                    <div class="card-block">
+                        <div class="row">
+                            <div id="catalog" class="col-lg-12"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card my-4">
+                    <h5 class="card-header"><i class="fa fa-connectdevelop" aria-hidden="true"></i> 相关博客</h5>
+                    <div class="list-group">
+                        <ul class="list-group">
+                            <a href="/u/waylau/blogs/1" class="list-group-item" title="waylau">
+                                Spring Data + Thymeleaf 3 + Bootstrap 4 实现分页器
+                            </a>
+                            <a href="/u/waylau/blogs/1" class="list-group-item" title="waylau">
+                                用大白话聊聊分布式系统
+                            </a>
+                            <a href="/u/waylau/blogs/1" class="list-group-item" title="waylau">
+                                用大白话聊聊分布式系统>
+                            </a>
+                            <a href="/u/waylau/blogs/1" class="list-group-item" title="waylau">
+                                使用 Eclipse Checkstyle Plugin
+                            </a>
+
+                            <a href="/u/waylau/blogs/1" class="list-group-item" title="waylau">
+                                使用 Eclipse Checkstyle Plugin
+                            </a>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>-->
+        </div>
+
+    </div>
+
+</div>
+<!-- /.container -->
+
+
+<div th:replace="fragments/footer :: footer">...</div>
+<script src="../../js/userspace/blog.js" th:src="@{/js/userspace/blog.js}"></script>
+<script src="../../js/userspace/blogedit.js" th:src="@{/js/userspace/blogedit.js}"></script>
+<script type="text/javascript">
+    var testEditor;
+
+    $(function() {
+        testEditor = editormd.markdownToHTML("doc-content", {
+            htmlDecode: "style,script",
+            emoji: true,
+            taskList: true,
+            tex: true,
+            flowChart: true,
+            sequenceDiagram: true,
+            codeFold: true,
+            /**设置主题颜色*/
+            editorTheme: "pastel-on-dark",
+            theme: "dark"
+        });
+    });
+</script>
+</body>
+</html>

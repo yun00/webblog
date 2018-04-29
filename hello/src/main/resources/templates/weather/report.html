@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <!-- Bootstrap -->
+    <link href="../../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet"></link>
+
+    <title>云师兄的天气预报</title>
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+        <h3 data-th-text="${reportModel.title}">yubuyun</h3>
+        <select class="custom-select" id="selectCityId">
+            <option data-th-each="city : ${reportModel.cityList}"
+                    data-th-value="${city.cityId}" data-th-text="${city.cityName}"
+                    data-th-selected="${city.cityId eq reportModel.cityId}">
+            </option>
+        </select>
+    </div>
+
+    <div class="row">
+        <h1 class="text-success" data-th-text="${reportModel.report.city}">城市</h1>
+    </div>
+
+    <div class="row">
+        <p>
+            空气质量指数:<span data-th-text="${reportModel.report.aqi}"></span>
+        </p>
+    </div>
+
+    <div class="row">
+        <p>
+            当前稳定：<span data-th-text="${reportModel.report.wendu}"></span>
+        </p>
+    </div>
+
+    <div class="row">
+        <p>
+            温馨提示:<span data-th-text="${reportModel.report.ganmao}"></span>
+        </p>
+    </div>
+
+    <div class="row">
+        <div class="card-group">
+            <div class="card card-inverse card-info" data-th-each="forecast : ${reportModel.report.forecast}">
+                <div class="card-block">
+                    <p class="card-text" data-th-text="${forecast.date}">日期</p>
+                    <p class="card-text" data-th-text="${forecast.type}">天气类型</p>
+                    <p class="card-text" data-th-text="${forecast.high}">最高温度</p>
+                    <p class="card-text" data-th-text="${forecast.low}">最低温度</p>
+                    <p class="card-text" data-th-text="${forecast.fengxiang}">风向</p>
+                    <p class="card-text" data-th-text="${forecast.type}">天气类型</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+
+<script type="text/javascript" th:src="@{/js/weather/report.js}"></script>
+
+</body>
+</html>

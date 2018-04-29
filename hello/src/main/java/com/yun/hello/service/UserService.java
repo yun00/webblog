@@ -1,18 +1,11 @@
 package com.yun.hello.service;
 
-import java.util.List;
-
+import com.yun.hello.domain.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.yun.hello.domain.User;
+import java.util.List;
 
-/**
- * User 服务接口.
- * 
- * @since 1.0.0 2017年3月18日
- * @author <a href="https://waylau.com">Way Lau</a>
- */
 public interface UserService {
 	/**
 	 * 保存用户
@@ -20,7 +13,7 @@ public interface UserService {
 	 * @return
 	 */
 	User saveUser(User user);
-	
+
 	/**
 	 * 删除用户
 	 * @param user

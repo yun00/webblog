@@ -2,19 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"></meta>
-    <title>Bootstrap in action</title>
 </head>
 <body>
 
- <footer class="blog-footer" data-th-fragment="footer">
-   <p>@欢迎来到云师兄的博客</p>
-   
-   	<!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../js/jquery-3.1.1.min.js"></script>
-    <script src="../../js/bootstrap.min.js"></script>
- </footer>
+<footer data-th-fragment="footer">
+    <!--
+    <div class="container">
+        <p class="m-0 text-center text-white">© 2018 <a href="https://yubuyun.top">yubuyun.top</a></p>
+    </div>
+-->
+    <!-- JavaScript -->
+    <script src="../../js/jquery-3.1.1.min.js" th:src="@{/js/jquery-3.1.1.min.js}"></script>
+    <script src="../../js/jquery.form.min.js" th:src="@{/js/jquery.form.min.js}"></script>
+    <script src="../../js/tether.min.js" th:src="@{/js/tether.min.js}"></script>
+    <script src="../../js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+    <script src="../../js/nprogress.js" th:src="@{/js/nprogress.js}"></script>
+    <script src="../../js/thinker-md.vendor.min.js" th:src="@{/js/thinker-md.vendor.min.js}"></script>
+    <script src="../../js/jquery.tag-editor.min.js" th:src="@{/js/jquery.tag-editor.min.js}"></script>
+    <script src="../../js/chosen.jquery.js" th:src="@{/js/chosen.jquery.js}"></script>
+    <script src="../../js/toastr.min.js" th:src="@{/js/toastr.min.js}"></script>
+    <script src="../../js/cropbox.js" th:src="@{/js/cropbox.js}"></script>
+    <script src="../../js/thymeleaf-bootstrap-paginator.js" th:src="@{/js/thymeleaf-bootstrap-paginator.js}"></script>
+    <script src="../../js/catalog-generator.js" th:src="@{/js/catalog-generator.js}"></script>
+    <script src="../../js/main.js" th:src="@{/js/main.js}"></script>
+
+    <script src="../../js/editor/lib/prettify.min.js" th:src="@{/js/editor/lib/prettify.min.js}"></script>
+    <script src="../../js/editor/lib/raphael.min.js" th:src="@{/js/editor/lib/raphael.min.js}"></script>
+    <script src="../../js/editor/lib/underscore.min.js" th:src="@{/js/editor/lib/underscore.min.js}"></script>
+    <script src="../../js/editor/lib/sequence-diagram.min.js" th:src="@{/js/editor/lib/sequence-diagram.min.js}"></script>
+    <script src="../../js/editor/lib/flowchart.min.js" th:src="@{/js/editor/lib/flowchart.min.js}"></script>
+    <script src="../../js/editor/lib/jquery.flowchart.min.js" th:src="@{/js/editor/lib/jquery.flowchart.min.js}"></script>
+    <script src="../../js/editor/lib/editormd.min.js" th:src="@{/js/editormd.min.js}"></script>
+
+    <script src="../../js/jquery.backstretch.min.js" th:src="@{/js/jquery.backstretch.min.js}"></script>
+    <script src="../../js/scripts.js" th:src="@{/js/scripts.js}"></script>
+    <script src="../../js/placeholder.js" th:src="@{/js/placeholder.js}"></script>
+</footer>
 
 </body>
 </html>

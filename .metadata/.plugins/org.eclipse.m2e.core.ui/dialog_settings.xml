@@ -20,6 +20,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="/Users/yubuyun/Documents/workspace/webblog/webblog"/>
 			<item value="G:\Sping\workspace\project\blogwebsite"/>
 		</list>
 		<list key="projectNameTemplate">

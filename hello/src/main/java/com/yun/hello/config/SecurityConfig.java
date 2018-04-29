@@ -16,27 +16,33 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 /**
  * Spring Security 配置类.
  * 
- * @since 1.0.0 2017年3月8日
- * @author <a href="https://waylau.com">Way Lau</a>
+ * 想要开启Spring方法级安全，你需要在已经添加了@Configuration注解的类上再添加@EnableGlobalMethodSecurity注解
+ * @PreAuthorize 注解适合进入方法前的权限验证
  */
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true) // 启用方法安全设置
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-	
-	private static final String KEY = "waylau.com";
+
+	/**
+	 * remember me key
+	 */
+	private static final String KEY = "yubuyun";
 	
 	@Autowired
 	private UserDetailsService userDetailsService;
 
 	@Autowired
     private PasswordEncoder passwordEncoder;
-	
+
+	/**
+	 * 加密bean
+	 */
 	@Bean  
     public PasswordEncoder passwordEncoder() {  
         return new BCryptPasswordEncoder();   // 使用 BCrypt 加密
     }  
 	
-	@Bean  
+	@Bean
     public AuthenticationProvider authenticationProvider() {  
 		DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
 		authenticationProvider.setUserDetailsService(userDetailsService);
@@ -49,16 +55,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/css/**", "/js/**", "/fonts/**", "/index").permitAll() // 都可以访问
-				.antMatchers("/h2-console/**").permitAll() // 都可以访问
+		http.authorizeRequests().antMatchers("/css/**", "/js/**", "/fonts/**", "/index","/weather").permitAll() // 都可以访问
 				.antMatchers("/admins/**").hasRole("ADMIN") // 需要相应的角色才能访问
 				.and()
 				.formLogin()   //基于 Form 表单登录验证
 				.loginPage("/login").failureUrl("/login-error") // 自定义登录界面
 				.and().rememberMe().key(KEY) // 启用 remember me
 				.and().exceptionHandling().accessDeniedPage("/403");  // 处理异常，拒绝访问就重定向到 403 页面
-		http.csrf().ignoringAntMatchers("/h2-console/**"); // 禁用 H2 控制台的 CSRF 防护
-		http.headers().frameOptions().sameOrigin(); // 允许来自同一来源的H2 控制台的请求
 	}
 	
 	/**

@@ -12,7 +12,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/blogs")
 public class BlogController {
-	
+
+	/**
+	 * 
+	 * @param order
+	 * @param tag
+	 * @return
+	 */
 	@GetMapping
 	public String listBlogs(@RequestParam(value="order",required=false,defaultValue="new") String order,
 			@RequestParam(value="tag",required=false) Long tag) {
